@@ -1,0 +1,29 @@
+<p>customer-review works!</p>
+<form ng-submit="reviewCtrl.submitReview()">
+  <label for="name">Name:</label>
+  <input type="text" [(ngModel)]="reviewCtrl.review.name" id="name" required>
+
+  <select ng-model="reviewCtrl.review.rating" id="rating" required>
+    <option value="">-- Select a rating --</option>
+    <option value="1">1 Star</option>
+    <option value="2">2 Stars</option>
+    <option value="3">3 Stars</option>
+    <option value="4">4 Stars</option>
+    <option value="5">5 Stars</option>
+  </select>
+
+  <label for="comment">Comment:</label>
+  <textarea ng-model="reviewCtrl.review.comment" id="comment" required></textarea>
+
+  <button type="submit">Submit Review</button>
+</form>
+
+<h2>Reviews:</h2>
+<ul>
+  <li ng-repeat="review in reviewCtrl.reviews">
+    <p>Name: {{review.name}}</p>
+    <p>Rating: {{review.rating}} Stars</p>
+    <p>Comment: {{review.comment}}</p>
+  </li>
+</ul>
+
